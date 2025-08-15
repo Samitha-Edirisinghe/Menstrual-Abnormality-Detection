@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menstrual Abnomility Detection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .header-title {
+        font-family: 'Quicksand', sans-serif;
+        letter-spacing: 1px;
+        }
+
+        body, input, button {font-family: 'Inter', sans-serif;}
+
+        body {
+            background: url('{{ url_for("static", filename="images/background.svg") }}') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6">
+    <header class="w-full max-w-5xl text-center mb-6 pb-4">
+        <h1 class="header-title text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white text-transparent drop-shadow-lg">CycleSense</h1>
+    </header>
+
+    <div class="w-full max-w-5xl bg-rose-50 p-8 pb-4 rounded-3xl shadow-lg relative overflow-hidden">
+
+        <h1 class="text-3xl font-bold text-pink-400 text-center mb-8">Menstrual Abnormality Checker</h1>
+
+    {% block content %}{% endblock content %}
+
+    <div id="result" class="mt-6 text-center text-xl font-medium text-white"></div>
+
+    <img src="{{ url_for('static', filename='images/girl.png') }}" alt="illustration of a girl"
+        class="hidden lg:block absolute bottom-0 right-4 w-35 lg:w-35 max-w-[25%] h-auto opacity-85 pointer-events-none select-none" />
+
+    </div>
+</body>
+</html>

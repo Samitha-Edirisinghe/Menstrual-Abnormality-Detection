@@ -1,0 +1,76 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+{% if prediction == 'abnormal' %}
+    <div role="alert">
+        <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+            Abnormality Detected 😷🤚 
+        </div>
+        <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+            <p>Meet your Doctor for more details.</p>
+        </div>
+    </div>
+{% else %}
+    <div class="flex items-center p-4 mb-4 text-sm text-fuchsia-100 border border-fuchsia-300 rounded-lg bg-fuchsia-700 dark:bg-fuchsia-700 dark:text-fuchsia-100 dark:border-fuchsia-300" role="alert">
+    <div>
+        <span class="font-medium">No any Abnormality Detected 😊 . You are Healthy 🤍</span> 
+    </div>
+    </div>
+{% endif %}
+
+
+<center>
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8 pb-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-left text-sm font-light text-surface text-black">
+          <tbody>
+            <tr class="border-b-2 border-neutral-200 border-gray-300">
+              <td class="whitespace-nowrap px-6 py-4 font-semibold">Age</td>
+              <td class="whitespace-nowrap px-6 py-4 font-medium">{{age}}</td>
+            </tr>
+            <tr class="border-b-2 border-neutral-200 border-gray-300">
+              <td class="whitespace-nowrap px-6 py-4 font-semibold">Cycle Length</td>
+              <td class="whitespace-nowrap px-6 py-4 font-medium">{{cycle_length}}</td>
+            </tr>
+            <tr class="border-b-2 border-neutral-200 border-gray-300">
+              <td class="whitespace-nowrap px-6 py-4 font-semibold">Period Duration</td>
+              <td class="whitespace-nowrap px-6 py-4 font-medium">{{period_duration}}</td>
+            </tr>
+            <tr class="border-b-2 border-neutral-200 border-gray-300">
+              <td class="whitespace-nowrap px-6 py-4 font-semibold">Flow Intensity</td>
+              <td class="whitespace-nowrap px-6 py-4 font-medium">{{flow_intensity}}</td>
+            </tr>
+            <tr class="border-b-2 border-neutral-200 border-gray-300">
+              <td class="whitespace-nowrap px-6 py-4 font-semibold">PMS Score</td>
+              <td class="whitespace-nowrap px-6 py-4 font-medium">{{pms_score}}</td>
+            </tr>
+            <tr class="border-b-2 border-neutral-200 border-gray-300">
+              <td class="whitespace-nowrap px-6 py-4 font-semibold">Spotting</td>
+              <td class="whitespace-nowrap px-6 py-4 font-medium">{{spotting}}</td>
+            </tr>
+            <tr class="border-b-2 border-neutral-200 border-gray-300">
+              <td class="whitespace-nowrap px-6 py-4 font-semibold">Stress Level</td>
+              <td class="whitespace-nowrap px-6 py-4 font-medium">{{stress_level}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="{{ url_for('index') }}"
+   class="inline-block rounded-xl bg-pink-600 px-6 pb-3 pt-3 font-medium leading-normal text-white drop-shadow-lg
+          transition duration-150 ease-in-out hover:bg-pink-700 focus:bg-fuchsia-800 focus:outline-none focus:ring-2 focus:ring-fuchsia-600"
+   type="button">
+    <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 12h14m0 0l-7-7m7 7l-7 7" />
+    </svg>
+  Do another Test
+</a>
+
+{% endblock content %}
